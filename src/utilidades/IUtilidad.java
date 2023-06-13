@@ -10,6 +10,8 @@ public interface IUtilidad {
 	void tiempoEspera(String mensaje, int sleepTimer);
 
 	int iniciarMenu();
+	
+	void limpiarPantalla();
 
 
 	

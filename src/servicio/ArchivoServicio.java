@@ -5,11 +5,9 @@ package servicio;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-
 import modelo.CategoriaEnum;
 import modelo.Cliente;
 
@@ -17,93 +15,93 @@ import modelo.Cliente;
  * @author marely
  *
  */
-public class ArchivoServicio implements IServicios<Object> {
+public class ArchivoServicio implements IArchivos {
 
+	boolean listaCargada = false;
+
+	/***************************************
+	 * CargarDatos
+	 *
+	 */
 	@Override
-	public List<Cliente> cargaDatos() {
+	public List<Cliente> cargarDatos(List<Cliente> listaClientes) {
 
-//		List<Cliente> listaClientes = new ArrayList<Cliente>();
+//		 List<Cliente>listaArchivo = new ArrayList<Cliente>();
 
-		String path = "src/Directorio/DBClientes.csv";
+		if (listaCargada == false) {
+			String path = "src/directorio/DBClientes.csv";
 
-		File file = new File(path);
+			File file = new File(path);
 
-		try {
-			if (file.exists()) {
-				if (file.canRead()) {
+			try {
+				if (file.exists()) {
 
-					Scanner sc = new Scanner(file);
+					if (file.canRead()) {
 
-					while (sc.hasNextLine()) {
+						Scanner sc = new Scanner(file);
 
-						String linea = sc.nextLine();
-						StringTokenizer atributo = new StringTokenizer(linea, ",");
-						Cliente cliente = new Cliente();
-						// System.out.println(sc.nextLine());
+						while (sc.hasNextLine()) {
 
-						while (atributo.hasMoreElements()) {
-							// empleado.setID(Integer.parseInt(atributo.nextElement().toString()));
-							cliente.setRunCliente((atributo.nextElement().toString()));
-							cliente.setNombreCliente((atributo.nextElement().toString()));
-							cliente.setApellidoCliente((atributo.nextElement().toString()));
-							cliente.setAniosCliente((atributo.nextElement().toString()));
-							cliente.setNombreCategoria(CategoriaEnum.valueOf((atributo.nextElement().toString())));
+							String linea = sc.nextLine();
+							StringTokenizer atributo = new StringTokenizer(linea, ",");
+							Cliente cliente = new Cliente();
+							// System.out.println(sc.nextLine());
+
+							while (atributo.hasMoreElements()) {
+								// empleado.setID(Integer.parseInt(atributo.nextElement().toString()));
+								cliente.setRunCliente((atributo.nextElement().toString()));
+								cliente.setNombreCliente((atributo.nextElement().toString()));
+								cliente.setApellidoCliente((atributo.nextElement().toString()));
+								cliente.setAniosCliente(Integer.parseInt(atributo.nextElement().toString()));
+								cliente.setNombreCategoria(CategoriaEnum.valueOf((atributo.nextElement().toString())));
+							}
+
+							listaClientes.add(cliente);
 						}
+						if (listaClientes.isEmpty()) {
+							System.out.println("\n\tEl archivo no contiene datos para ser cargados ! \n");
+						} else {
 
-						IServicios.listaClientes.add(cliente);
+							listaClientes.forEach(x -> System.out.println(x + "\n"));
+							System.out.println("\n\n\t*** Los datos externos se cargaron con éxito !! ***\n\n");
+
+						}
+						sc.close();
 					}
 
-					sc.close();
-//				
-//					System.out.println(listaClientes.toString());
-			listaClientes.forEach(x -> System.out.println(x+"\n"));
-
+				} else {
+					System.out.println(("\n\tEl archivo no existe !!"));
 				}
-			} else {
-				System.out.println(("El archivo no existe !!"));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+
+		} else {
+
+			System.out.println("\n\t *** Los datos del archivo ya se encuentran cargados en sistema ***\n");
 		}
+
+		listaCargada = true;
 		return listaClientes;
 
 	}
 
-	private CategoriaEnum CategoriaEnum(String string) {
+	@Override
+	public int menuTipoSistema() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String rutaArchivo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void exportar() {
-	}
-
-
-
-	@Override
-	public int listarClientes(List<Cliente> listaClientes) {
-		return 0;
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public int iniciarMenu() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public List<Cliente> agregarCliente() {
+	public List<Cliente> cargarDatos() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void agregarCliente(List<Cliente> listaClientes) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

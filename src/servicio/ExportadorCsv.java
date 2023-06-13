@@ -3,54 +3,56 @@
  */
 package servicio;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.List;
+
+import modelo.CategoriaEnum;
+import modelo.Cliente;
 
 /**
  * @author marely
+ * @param <Cliente>
  *
  */
-public class ExportadorCsv implements IServicios{
 
-	@Override
-	public void exportar() {
-		
-		
-	}
+public class ExportadorCsv  {
 
-	@Override
-	public List cargaDatos() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public int listarClientes(List listaClientes) {
-		return 0;
+	public void rutaArchivo(int tipoSistema) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public int iniciarMenu() {
-		// TODO Auto-generated method stub
-		return 0 ;
-	}
-
-	
-
-	@Override
-	public List agregarCliente() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void agregarCliente(List listaClientes) {
-		// TODO Auto-generated method stub
-		
-	}
-
+//	private String clienteTexto = "";
+//	private 
+//	public void exportar(List listaCliente, String path) {
+//System.out.println("en el método exportar");
+//		File file = new File(path);
+//
+//		for (Cliente c : listaClientes) {
+//		    clienteTexto += c.getRunCliente() + "," + c.getNombreCliente() + "," + c.getApellidoCliente() + ","
+//		            + c.getAniosCliente() + "," + c.getNombreCategoria(CategoriaEnum.values()) + "\n";
+//		}
+//		
+//		try {
+//
+//			if (file.exists()) {
+//				System.out.println("El archivo ya existe, se sobreescribirá");
+//			} else {
+//				file.createNewFile();
+//				FileWriter fw = new FileWriter(file);
+//				BufferedWriter bw = new BufferedWriter(fw);
+//				bw.write(clienteTexto);
+//				bw.close();
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+//
+//	//
 
 
 

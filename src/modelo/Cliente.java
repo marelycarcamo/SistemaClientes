@@ -11,10 +11,9 @@ public class Cliente {
 private String runCliente;
 private String nombreCliente;
 private String apellidoCliente;
-private String aniosCliente;
+private Integer aniosCliente;
 private CategoriaEnum nombreCategoria;
-
-public Cliente(String runCliente, String nombreCliente, String apellidoCliente, String aniosCliente,
+public Cliente(String runCliente, String nombreCliente, String apellidoCliente, Integer aniosCliente,
 		CategoriaEnum nombreCategoria) {
 	super();
 	this.runCliente = runCliente;
@@ -22,9 +21,10 @@ public Cliente(String runCliente, String nombreCliente, String apellidoCliente, 
 	this.apellidoCliente = apellidoCliente;
 	this.aniosCliente = aniosCliente;
 	this.nombreCategoria = nombreCategoria;
+
 }
 public Cliente() {
-	// TODO Auto-generated constructor stub
+	// constructor vacio
 }
 public String getRunCliente() {
 	return runCliente;
@@ -44,27 +44,31 @@ public String getApellidoCliente() {
 public void setApellidoCliente(String apellidoCliente) {
 	this.apellidoCliente = apellidoCliente;
 }
-public String getAniosCliente() {
+public Integer getAniosCliente() {
 	return aniosCliente;
 }
-public void setAniosCliente(String aniosCliente) {
+public void setAniosCliente(Integer aniosCliente) {
 	this.aniosCliente = aniosCliente;
 }
-public CategoriaEnum getNombreCategoria() {
+public CategoriaEnum getNombreCategoria(CategoriaEnum[] categoriaEnums) {
 	return nombreCategoria;
 }
 public void setNombreCategoria(CategoriaEnum nombreCategoria) {
 	this.nombreCategoria = nombreCategoria;
 }
+
 @Override
 public String toString() {
 	return "Cliente [runCliente=" + runCliente + ", nombreCliente=" + nombreCliente + ", apellidoCliente="
-			+ apellidoCliente + ", aniosCliente=" + aniosCliente + ", nombreCategoria=" + nombreCategoria + "]";
+			+ apellidoCliente + ", aniosCliente=" + aniosCliente + ", nombreCategoria=" + nombreCategoria
+			+ "]";
 }
-public void setNombreCategoria(String string) {
-	// TODO Auto-generated method stub
-	
-}
+
+
+
+
+
+
 
 
 }

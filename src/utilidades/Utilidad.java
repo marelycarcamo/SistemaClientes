@@ -26,11 +26,19 @@ public class Utilidad {
 	}
 
 
+	public static void showMessage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void mostrarMensaje() {
 
 	}
 
 	public void limpiarPantalla() {
-
+//		  for (int i = 0; i < 10; i++) {
+//			   Utilidad.showMessage("");
+//			  }
+//			  System.out.flush();
 	}
 }

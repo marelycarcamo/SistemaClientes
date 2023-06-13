@@ -7,7 +7,7 @@ package modelo;
  * @author marely
  *
  */
-public enum CategoriaEnum {activo,inactivo};
+public enum CategoriaEnum {ACTIVO,INACTIVO};
 // TODO Auto-generated method stub
 	
 
